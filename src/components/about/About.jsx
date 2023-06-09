@@ -1,30 +1,56 @@
 import Info from './Info';
 import AboutImg from '../../assets/profile.jpg';
 import CV from '../../assets/Bogus-Cv.pdf';
-
 import './about.css';
+
+import { motion } from "framer-motion"
+
+
+const leftAnimation = {
+    hidden: {
+        x: -100,
+        opacity: 0,
+    },
+    visible: custom => ({
+        x: 0,
+        opacity: 1,
+        transition: {delay: custom},
+    }),
+}
+const rightAnimation = {
+    hidden: {
+        x: 100,
+        opacity: 0,
+    },
+    visible: custom => ({
+        x: 0,
+        opacity: 1,
+        transition: {delay: custom},
+    }),
+}
+
 
 
 const About  = () => {
     return  (
-        <section className="about section" id="about">
-            <h2 className="section__title">Обо мне</h2>
-            <span className="section__subtitle">Краткая информация</span>
+        <motion.section initial="hidden" whileInView="visible" className="about section" id="about">
+            <motion.h2 custom={0.2} variants={leftAnimation} className="section__title">Обо мне</motion.h2>
+            <motion.span custom={0.3} variants={leftAnimation} className="section__subtitle">Краткая информация</motion.span>
 
             <div className="about__container container grid">
-                <img src={AboutImg} alt="Даниил Богус" className="about__img"/>
+                <motion.img custom={0.4} variants={leftAnimation} src={AboutImg} alt="Даниил Богус" className="about__img"/>
 
-                <div className="about__data">
+                <motion.div custom={0.3} variants={rightAnimation} className="about__data">
                     <Info />
 
-                    <p className="about__description">Скачайте мое резюме, чтобы узнать о моих навыках и опыте работы. Оно предоставит полное представление о моих компетенциях в разработке. Оцените мою способность решать сложные задачи и достигать поставленных целей. Не упустите возможность ознакомиться с моим профессиональным путем.</p>
+                    <motion.p custom={0.4} variants={rightAnimation} className="about__description">Скачайте мое резюме, чтобы узнать о моих навыках и опыте работы. Оно предоставит полное представление о моих компетенциях в разработке. Оцените мою способность решать сложные задачи и достигать поставленных целей. Не упустите возможность ознакомиться с моим профессиональным путем.</motion.p>
 
-                    <a download="" href={CV} className="button button--flex">
+                    <motion.a custom={0.5} variants={rightAnimation} download="" href={CV} className="button button--flex">
                         Скачать резюме <i className="uil uil-file-download-alt file__icon"></i>
-                    </a>
-                </div>
+                    </motion.a>
+                </motion.div>
             </div>
-        </section>
+        </motion.section>
     )
 }
 

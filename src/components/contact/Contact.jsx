@@ -1,7 +1,32 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-
 import './contact.css';
+
+import { motion } from "framer-motion";
+
+
+const leftAnimation = {
+    hidden: {
+        x: -100,
+        opacity: 0,
+    },
+    visible: custom => ({
+        x: 0,
+        opacity: 1,
+        transition: {delay: custom},
+    }),
+}
+const rightAnimation = {
+    hidden: {
+        x: 100,
+        opacity: 0,
+    },
+    visible: custom => ({
+        x: 0,
+        opacity: 1,
+        transition: {delay: custom},
+    }),
+}
 
 const Contact = () => {
     const form = useRef();
@@ -13,12 +38,12 @@ const Contact = () => {
             e.target.reset()
     };
     return (
-        <section className="contact section" id="contact">
-            <h2 className="section__title">Контакты</h2>
-            <span className="section__subtitle">Как связаться со мной</span>
+        <motion.section initial="hidden" whileInView="visible" className="contact section" id="contact">
+            <motion.h2 custom={0.2} variants={leftAnimation} className="section__title">Контакты</motion.h2>
+            <motion.span custom={0.3} variants={rightAnimation} className="section__subtitle">Как связаться со мной</motion.span>
 
             <div className="contact__container container grid">
-                <div className="contact__content">
+                <motion.div custom={0.4} variants={leftAnimation} className="contact__content">
                     <h3 className="contact__title">Как связаться?</h3>
 
                     <div className="contact__info">
@@ -55,9 +80,9 @@ const Contact = () => {
                             </a>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className="contact__content">
+                <motion.div custom={0.4} variants={rightAnimation} className="contact__content">
                     <h3 className="contact__title">Опишите ваш проект</h3>
 
                     <form className="contact__form" ref={form} onSubmit={sendEmail}>
@@ -78,9 +103,9 @@ const Contact = () => {
 
                         <button className="button button--flex">Отправить сообщение</button>
                     </form>
-                </div>
+                </motion.div>
             </div>
-        </section>
+        </motion.section>
     )
 }
 
