@@ -5,19 +5,19 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer__container container">
-                <h1 className="footer__title">Bogus</h1>
+                <h1 className="footer__title">BogusCode.ru</h1>
 
                 <ul className="footer__list">
                     <li>
-                        <a href="#about" className="footer__link">About</a>
+                        <a href="#about" className="footer__link">Главная</a>
                     </li>
 
                     <li>
-                        <a href="#portfolio" className="footer__link">Projects</a>
+                        <a href="#portfolio" className="footer__link">Навыки</a>
                     </li>
 
                     <li>
-                        <a href="#testimonials" className="footer__link">Testimonials</a>
+                        <a href="#testimonials" className="footer__link">Отзывы</a>
                     </li>
                 </ul>
 
@@ -35,7 +35,7 @@ const Footer = () => {
                     </a>
                 </div>
                 <span className="footer__copy">
-                        BogusCode. All rights reserved.
+                        &copy;BogusCode. Все права защищены.
                 </span>
             </div>
         </footer>

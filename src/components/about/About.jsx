@@ -17,10 +17,10 @@ const About  = () => {
                 <div className="about__data">
                     <Info />
 
-                    <p className="about__description">Frontend developer, создаю веб-приложения.</p>
+                    <p className="about__description">Скачайте мое резюме, чтобы узнать о моих навыках и опыте работы. Оно предоставит полное представление о моих компетенциях в разработке. Оцените мою способность решать сложные задачи и достигать поставленных целей. Не упустите возможность ознакомиться с моим профессиональным путем.</p>
 
                     <a download="" href={CV} className="button button--flex">
-                        Скачать CV
+                        Скачать резюме <i className="uil uil-file-download-alt file__icon"></i>
                     </a>
                 </div>
             </div>
