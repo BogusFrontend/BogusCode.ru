@@ -10,39 +10,13 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 
-import { motion } from "framer-motion"
-
-
-const leftAnimation = {
-    hidden: {
-        x: -100,
-        opacity: 0,
-    },
-    visible: custom => ({
-        x: 0,
-        opacity: 1,
-        transition: {delay: custom},
-    }),
-}
-const rightAnimation = {
-    hidden: {
-        x: 100,
-        opacity: 0,
-    },
-    visible: custom => ({
-        x: 0,
-        opacity: 1,
-        transition: {delay: custom},
-    }),
-}
-
 const Testimonials = () => {
     return (
-        <motion.div initial="hidden" whileInView="visible" className="testimonials container section">
-            <motion.h2 custom={0.2} variants={leftAnimation} className="section__title">Что говорят</motion.h2>
-            <motion.span custom={0.3} variants={rightAnimation} className="section__subtitle">Отзывы</motion.span>
+        <div className="testimonials container section">
+            <h2 className="section__title">Что говорят</h2>
+            <span className="section__subtitle">Отзывы</span>
 
-            <motion.div custom={0.3} variants={rightAnimation}>
+            <div>
                 <Swiper className="testimonials__container"
                         loop={true}
                         grabCursor={true}
@@ -72,8 +46,8 @@ const Testimonials = () => {
                         )
                     })}
                 </Swiper>
-            </motion.div>
-        </motion.div>
+            </div>
+        </div>
     )
 }
 

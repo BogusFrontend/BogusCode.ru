@@ -2,32 +2,6 @@ import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import './contact.css';
 
-import { motion } from "framer-motion";
-
-
-const leftAnimation = {
-    hidden: {
-        x: -100,
-        opacity: 0,
-    },
-    visible: custom => ({
-        x: 0,
-        opacity: 1,
-        transition: {delay: custom},
-    }),
-}
-const rightAnimation = {
-    hidden: {
-        x: 100,
-        opacity: 0,
-    },
-    visible: custom => ({
-        x: 0,
-        opacity: 1,
-        transition: {delay: custom},
-    }),
-}
-
 const Contact = () => {
     const form = useRef();
 
@@ -38,12 +12,12 @@ const Contact = () => {
             e.target.reset()
     };
     return (
-        <motion.section initial="hidden" whileInView="visible" className="contact section" id="contact">
-            <motion.h2 custom={0.2} variants={leftAnimation} className="section__title">Контакты</motion.h2>
-            <motion.span custom={0.3} variants={rightAnimation} className="section__subtitle">Как связаться со мной</motion.span>
+        <section  className="contact section" id="contact">
+            <h2  className="section__title">Контакты</h2>
+            <span  className="section__subtitle">Как связаться со мной</span>
 
             <div className="contact__container container grid">
-                <motion.div custom={0.4} variants={leftAnimation} className="contact__content">
+                <div  className="contact__content">
                     <h3 className="contact__title">Как связаться?</h3>
 
                     <div className="contact__info">
@@ -53,7 +27,7 @@ const Contact = () => {
                             <h3 className="contact__card-title">Email</h3>
                             <span className="contact__card-data">bogus.frontend@gmail.com</span>
 
-                            <a href="" className="contact__button">
+                            <a href="mailto:bogus.frontend@gmail.com" className="contact__button">
                                 Написать <i className="bx bx-right-arrow-alt contact__button-icon"></i>
                             </a>
                         </div>
@@ -64,7 +38,7 @@ const Contact = () => {
                             <h3 className="contact__card-title">Telegram</h3>
                             <span className="contact__card-data">@BogusCode</span>
 
-                            <a href="" className="contact__button">
+                            <a href="https://t.me/BogusCode" className="contact__button">
                                 Написать <i className="bx bx-right-arrow-alt contact__button-icon"></i>
                             </a>
                         </div>
@@ -75,14 +49,14 @@ const Contact = () => {
                             <h3 className="contact__card-title">GitHub</h3>
                             <span className="contact__card-data">@BogusFrontend</span>
 
-                            <a href="" className="contact__button">
-                                Написать <i className="bx bx-right-arrow-alt contact__button-icon"></i>
+                            <a href="https://github.com/BogusFrontend" className="contact__button">
+                                Посмотреть проекты <i className="bx bx-right-arrow-alt contact__button-icon"></i>
                             </a>
                         </div>
                     </div>
-                </motion.div>
+                </div>
 
-                <motion.div custom={0.4} variants={rightAnimation} className="contact__content">
+                <div className="contact__content">
                     <h3 className="contact__title">Опишите ваш проект</h3>
 
                     <form className="contact__form" ref={form} onSubmit={sendEmail}>
@@ -103,9 +77,9 @@ const Contact = () => {
 
                         <button className="button button--flex">Отправить сообщение</button>
                     </form>
-                </motion.div>
+                </div>
             </div>
-        </motion.section>
+        </section>
     )
 }
 

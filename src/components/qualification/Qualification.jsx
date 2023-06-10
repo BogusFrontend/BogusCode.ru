@@ -1,32 +1,6 @@
 import './qualification.css';
 import {useState} from "react";
 
-import { motion } from "framer-motion"
-
-
-const leftAnimation = {
-    hidden: {
-        x: -100,
-        opacity: 0,
-    },
-    visible: custom => ({
-        x: 0,
-        opacity: 1,
-        transition: {delay: custom},
-    }),
-}
-const rightAnimation = {
-    hidden: {
-        x: 100,
-        opacity: 0,
-    },
-    visible: custom => ({
-        x: 0,
-        opacity: 1,
-        transition: {delay: custom},
-    }),
-}
-
 const Qualification = () => {
     const [toggleState, setToggleState] = useState(1);
 
@@ -35,34 +9,33 @@ const Qualification = () => {
     }
 
     return (
-        <motion.section initial="hidden" whileInView="visible" className="qualification section">
-            <motion.h2 custom={0.2} variants={leftAnimation} className="section__title">Квалификация</motion.h2>
-            <motion.span custom={0.3} variants={leftAnimation} className="section__subtitle">Моё персональное путешествие</motion.span>
+        <section  className="qualification section">
+            <h2 className="section__title">Квалификация</h2>
+            <span  className="section__subtitle">Моё персональное путешествие</span>
 
             <div className="qualification__container container">
                 <div className="qualification__tabs">
-                    <motion.div custom={0.3} variants={leftAnimation}
-                        className={toggleState === 1
+                    <div className={toggleState === 1
                             ? "qualification__button qualification__active button--flex"
                             : "qualification__button button--flex"}
                         onClick={() => toggleTab(1)}
                     >
                         <i className="uil uil-graduation-cap qualification__icon"></i>
                         Образование
-                    </motion.div>
+                    </div>
 
-                    <motion.div custom={0.3} variants={rightAnimation} className={toggleState === 2
+                    <div className={toggleState === 2
                         ? "qualification__button qualification__active button--flex"
                         : "qualification__button button--flex"}
                          onClick={() => toggleTab(2)}
                     >
                         <i className="uil uil-briefcase-alt qualification__icon"></i>
                         Опыт работы
-                    </motion.div>
+                    </div>
                 </div>
 
                 <div className="qualification__sections">
-                    <motion.div custom={0.3} variants={leftAnimation} className={toggleState === 1
+                    <div  className={toggleState === 1
                         ? "qualification__content qualification__content-active"
                         : "qualification__content"}
                     >
@@ -122,16 +95,16 @@ const Qualification = () => {
                             </div>
 
                             <div>
-                                <h3 className="qualification__title">Программирование</h3>
-                                <span className="qualification__subtitle">Алгоритмы и структуры данных</span>
+                                <h3 className="qualification__title">Web-разработка</h3>
+                                <span className="qualification__subtitle">Основы</span>
                                 <div className="qualification__calendar">
                                     <i className="uil uil-calendar-alt"></i> 2019 - 2021
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
 
-                    <motion.div custom={0.3} variants={leftAnimation} className={toggleState === 2
+                    <div  className={toggleState === 2
                         ? "qualification__content qualification__content-active"
                         : "qualification__content"}
                          onClick={() => toggleTab(2)}
@@ -199,10 +172,10 @@ const Qualification = () => {
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
-        </motion.section>
+        </section>
     )
 }
 

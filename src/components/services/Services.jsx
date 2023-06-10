@@ -1,30 +1,5 @@
 import './services.css';
 import {useState} from "react";
-import { motion } from "framer-motion"
-
-
-const leftAnimation = {
-    hidden: {
-        x: -100,
-        opacity: 0,
-    },
-    visible: custom => ({
-        x: 0,
-        opacity: 1,
-        transition: {delay: custom},
-    }),
-}
-const rightAnimation = {
-    hidden: {
-        x: 100,
-        opacity: 0,
-    },
-    visible: custom => ({
-        x: 0,
-        opacity: 1,
-        transition: {delay: custom},
-    }),
-}
 
 const Services = () => {
     const [toggleState, setToggleState] = useState(0);
@@ -34,15 +9,12 @@ const Services = () => {
     }
 
     return(
-        <motion.section
-            initial="hidden"
-            whileInView="visible"
-            className="services section" id="services">
-            <motion.h2 custom={0.2} variants={rightAnimation} className="section__title">Услуги</motion.h2>
-            <motion.span custom={0.3} variants={rightAnimation} className="section__subtitle">Что я могу предложить</motion.span>
+        <section className="services section" id="services">
+            <h2 className="section__title">Услуги</h2>
+            <span className="section__subtitle">Что я могу предложить</span>
 
             <div className="services__container container grid">
-                <motion.div custom={0.3} variants={leftAnimation} className="services__content">
+                <div className="services__content">
                     <div>
                         <i className="uil uil-web-grid services__icon"></i>
                         <h3 className="services__title">Веб <br /> Дизайн</h3>
@@ -87,9 +59,9 @@ const Services = () => {
                             </ul>
                         </div>
                     </div>
-                </motion.div>
+                </div>
 
-                <motion.div custom={0.4} variants={leftAnimation} className="services__content">
+                <div className="services__content">
                     <div>
                         <i className="uil uil-arrow services__icon"></i>
                         <h3 className="services__title">Вёрстка <br /> макетов</h3>
@@ -134,9 +106,9 @@ const Services = () => {
                             </ul>
                         </div>
                     </div>
-                </motion.div>
+                </div>
 
-                <motion.div custom={0.5} variants={leftAnimation} className="services__content">
+                <div className="services__content">
                     <div>
                         <i className="uil uil-edit services__icon"></i>
                         <h3 className="services__title">Цифровой <br /> маркетинг</h3>
@@ -181,9 +153,9 @@ const Services = () => {
                             </ul>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             </div>
-        </motion.section>
+        </section>
     )
 }
 

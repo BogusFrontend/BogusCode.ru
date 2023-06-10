@@ -13,7 +13,7 @@ const Footer = () => {
                     </li>
 
                     <li>
-                        <a href="#portfolio" className="footer__link">Навыки</a>
+                        <a href="#skills" className="footer__link">Навыки</a>
                     </li>
 
                     <li>
@@ -35,7 +35,7 @@ const Footer = () => {
                     </a>
                 </div>
                 <span className="footer__copy">
-                        &copy;BogusCode. Все права защищены.
+                        &copy;2023 BogusCode. Все права защищены.
                 </span>
             </div>
         </footer>
